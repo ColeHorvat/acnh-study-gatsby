@@ -9,6 +9,21 @@ import Header from '../components/Header'
 import Isabelle from '../components/Isabelle'
 
 
+async function getBGM(hour) {
+    fetch("http://acnhapi.com/v1/hourly/" + (hour + 1) * 3, {
+    "method": "GET",
+    "headers": {}
+    })
+    .then(response => {
+    console.log(response['url']);
+    })
+    .catch(err => {
+    console.error(err);
+    });
+}
+
+getBGM(0);
+
 const IndexPage = () => {
   return (
     <Container>
